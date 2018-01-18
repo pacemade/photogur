@@ -24,4 +24,12 @@ class Picture < ApplicationRecord
     Picture.where("created_at < ?", time)
   end
 
+  def self.one_month_plus
+    Picture.where("created_at < ?", Time.now.prev_month)
+  end
+
+  def self.created_in_year(year)
+    Picture.where("created_at >= ? AND created_at <= ?", year, (Date.new(year).end_of_year))
+  end
+
 end
