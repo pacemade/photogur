@@ -2,3 +2,26 @@
 
 <p><%= @picture.title %>, <%= @picture.artist %></p>
 <%= image_tag(@picture.url) %>
+
+<h2>Tags:</h2>
+<section>
+  <ul>
+    <% @tags.each do |tag| %>
+    <%= tag.name %>
+    <% end %>
+  </ul>
+</section>
+
+<h2>Comments:</h2>
+<section>
+  <ul>
+  <% @comments.each do |comment| %>
+    <li>
+      <p>
+      <%= comment.name %> says "<%= comment.message %>" on <%= comment.created_at %>
+      </p>
+    </li>
+  <% end %>
+</ul>
+
+</section>

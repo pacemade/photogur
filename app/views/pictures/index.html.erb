@@ -1,5 +1,6 @@
 <h1>Pictures (<%= @pictures.length %>)</h1>
 <%= link_to("New Picture", "/pictures/new") %>
+<%= link_to "Create new user", new_users_path  %>
 
 <h1>Most recent pictures</h1>
 <ul>
@@ -8,7 +9,12 @@
   <% end %>
 </ul>
 
-<% @pictures.each do |picture| %>
-  <p><%= picture.title %>, <%= picture.artist %></p>
-  <%= link_to(image_tag(picture.url), "/pictures/#{picture.id}") %>
-<% end %>
+<div class="pictures_index">
+  <% @pictures.each do |picture| %>
+    <p><%= picture.title %>, <%= picture.artist %></p>
+    <div class="img">
+      <%= link_to(image_tag(picture.url), "/pictures/#{picture.id}") %>
+    </div>
+    <p>Comments: <%= picture.comments.count %></p>
+  <% end %>
+</div>
