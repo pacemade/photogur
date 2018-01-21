@@ -5,10 +5,7 @@ class Picture < ApplicationRecord
   validates :title, length: { in: 3..20 }
 
   has_many :comments
-  # plural cause many comments to a picture
-  # def comments
-  #   Comment.where(picture_id: self.id)
-  # end
+  belongs_to :user
   has_and_belongs_to_many :tags
 
 
