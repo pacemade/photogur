@@ -4,7 +4,7 @@
 <h1>Most recent pictures</h1>
 <ul>
   <% @most_recent_pictures.each do |picture| %>
-    <li><%= picture.title %></li>
+    <li><%= link_to picture.title, picture_path(picture) %></li>
   <% end %>
 </ul>
 
